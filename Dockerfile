@@ -1,27 +1,28 @@
-FROM debian:wheezy
+FROM alpine:3.2
 MAINTAINER Joe Hughes
 
-# To get rid of error messages like "debconf: unable to initialize frontend: Dialog":
-RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
+COPY scripts/ /scripts/
+ADD src/SABnzbd-0.7.20-src.tar.gz /src/
 
-RUN echo "deb http://ppa.launchpad.net/jcfp/ppa/ubuntu precise main" | tee -a /etc/apt/sources.list
+RUN apk update &&\
+    apk add\
+      python\
+      g++\
+      autoconf\
+      automake\
+      unzip\
+      unrar\
+      make\
+      g++\
+      git &&\
+    /scripts/install_depend.sh &&\
+    apk del\
+      autoconf\
+      automake\
+      make\
+      g++\
+      git
 
-RUN apt-get -q update && \
-    apt-get install -qy --force-yes sabnzbdplus \
-    sabnzbdplus-theme-classic sabnzbdplus-theme-mobile sabnzbdplus-theme-plush
-    par2 python-yenc unzip unrar
+EXPOSE 8080
 
-# apt clean
-RUN apt-get clean &&\
-  rm -rf /var/lib/apt/lists/* &&\
-  rm -rf /tmp/*
-
-VOLUME /config
-VOLUME /data
-
-ADD ./start.sh /start.sh
-RUN chmod u+x  /start.sh
-
-EXPOSE 8080 9090
-
-CMD ["/start.sh"]
+ENTRYPOINT ["/scripts/start.sh"]

@@ -6,6 +6,7 @@ ADD src/SABnzbd-0.7.20-src.tar.gz /src/
 
 RUN apk update &&\
     apk add\
+      openssl\
       python\
       g++\
       autoconf\

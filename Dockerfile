@@ -15,6 +15,10 @@ RUN apk update &&\
       unrar\
       make\
       g++\
+      python-dev\
+      musl-dev\
+      libffi-dev\
+      openssl-dev\
       git &&\
     /scripts/install_depend.sh &&\
     apk del\
@@ -22,6 +26,10 @@ RUN apk update &&\
       automake\
       make\
       g++\
+      python-dev\
+      musl-dev\
+      libffi-dev\
+      openssl-dev\
       git
 
 EXPOSE 8080 9090

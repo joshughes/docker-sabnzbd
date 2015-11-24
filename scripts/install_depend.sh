@@ -23,7 +23,8 @@ python /scripts/get_pip.py
 
 pip install\
       cherrypy\
-      Cheetah
+      Cheetah\
+      pyOpenSSL
 
 rm /scripts/get_pip.py
 

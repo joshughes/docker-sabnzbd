@@ -23,6 +23,6 @@ RUN apk update &&\
       g++\
       git
 
-EXPOSE 8080
+EXPOSE 8080 9090
 
 ENTRYPOINT ["/scripts/start.sh"]

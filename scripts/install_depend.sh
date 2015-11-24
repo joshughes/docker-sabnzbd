@@ -28,6 +28,6 @@ pip install\
 
 rm /scripts/get_pip.py
 
-mkdir -p /config
+mkdir -p /config /data
 
 exit 0

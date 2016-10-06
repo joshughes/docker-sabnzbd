@@ -1,8 +1,8 @@
-FROM alpine:3.2
+FROM alpine:3.4
 MAINTAINER Joe Hughes
 
 COPY scripts/ /scripts/
-ADD src/SABnzbd-0.7.20-src.tar.gz /src/
+ADD src/SABnzbd-1.1.0-src.tar.gz /src/
 
 RUN apk update &&\
     apk add\

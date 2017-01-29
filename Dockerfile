@@ -2,7 +2,7 @@ FROM alpine:3.5
 MAINTAINER Joe Hughes
 
 COPY scripts/ /scripts/
-ADD src/SABnzbd-1.1.1-src.tar.gz /src/
+ADD src/SABnzbd-1.2.0-src.tar.gz /src/
 
 RUN apk --no-cache add\
       openssl\

@@ -2,7 +2,8 @@ FROM alpine:3.5
 MAINTAINER Joe Hughes
 
 COPY scripts/ /scripts/
-ADD src/SABnzbd-1.2.0-src.tar.gz /src/
+COPY src/SABnzbd-1.2.2-src.tar.gz /src/
+ADD https://github.com/Yelp/dumb-init/releases/download/v1.2.0/dumb-init_1.2.0_amd64 /usr/local/bin/dumb-init
 
 RUN apk --no-cache add\
       openssl\
@@ -20,6 +21,7 @@ RUN apk --no-cache add\
       openssl-dev\
       git &&\
     /scripts/install_depend.sh &&\
+    chmod +x /usr/local/bin/dumb-init &&\
     apk del\
       autoconf\
       automake\

@@ -1,3 +1,3 @@
 #!/usr/local/bin/dumb-init /bin/ash
 
-/src/SABnzbd-1.1.0/SABnzbd.py --config-file /config --server :8080
+/src/SABnzbd-${SAB_VERSION}/SABnzbd.py --config-file /config --server :8080

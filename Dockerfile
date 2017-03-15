@@ -2,7 +2,8 @@ FROM alpine:3.5
 MAINTAINER Joe Hughes
 
 COPY scripts/ /scripts/
-COPY src/SABnzbd-1.2.2-src.tar.gz /src/
+ENV SAB_VERSION=1.2.2
+COPY src/SABnzbd-${SAB_VERSION}-src.tar.gz /src/
 ADD https://github.com/Yelp/dumb-init/releases/download/v1.2.0/dumb-init_1.2.0_amd64 /usr/local/bin/dumb-init
 
 RUN apk --no-cache add\

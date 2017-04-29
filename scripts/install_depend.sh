@@ -2,17 +2,16 @@
 
 cd /src || exit 1
 
-git clone https://github.com/Parchive/par2cmdline.git
-git checkout tags/v0.6.14
+git clone https://github.com/jkansanen/par2cmdline-mt.git
+git checkout tags/v0.6.14-mt1
 
-cd par2cmdline || exit 1
+cd par2cmdline-mt || exit 1
 
 aclocal
 automake --add-missing
 autoconf
 ./configure
 make
-make check
 make install
 
 cd /src

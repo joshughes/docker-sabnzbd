@@ -2,7 +2,7 @@ FROM alpine:3.5
 MAINTAINER Joe Hughes
 
 COPY scripts/ /scripts/
-ENV SAB_VERSION=1.2.2
+ENV SAB_VERSION=2.0.0
 ADD src/SABnzbd-${SAB_VERSION}-src.tar.gz /src/
 ADD https://github.com/Yelp/dumb-init/releases/download/v1.2.0/dumb-init_1.2.0_amd64 /usr/local/bin/dumb-init
 

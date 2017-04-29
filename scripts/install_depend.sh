@@ -1,9 +1,9 @@
 #!/bin/ash
+set -ex
 
 cd /src || exit 1
 
 git clone https://github.com/jkansanen/par2cmdline-mt.git
-git checkout tags/v0.6.14-mt1
 
 cd par2cmdline-mt || exit 1
 
@@ -16,9 +16,11 @@ make install
 
 cd /src
 
-rm -rf /src/par2cmdline
+rm -rf /src/par2cmdline-mt
 
 python /scripts/get_pip.py
+
+pip install sabyenc --upgrade
 
 pip install\
       cherrypy\

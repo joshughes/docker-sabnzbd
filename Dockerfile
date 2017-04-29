@@ -20,6 +20,7 @@ RUN apk --no-cache add\
       musl-dev\
       libffi-dev\
       openssl-dev\
+      ca-certificates\
       git &&\
     /scripts/install_depend.sh &&\
     chmod +x /usr/local/bin/dumb-init &&\
